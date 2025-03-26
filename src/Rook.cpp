@@ -34,4 +34,12 @@ std::vector<std::vector<BField *>> Rook::get_valid_moves(std::vector<BField> &pl
     return res;
 }
 
+void Rook::move(BField *field) {
+    CPiece::move(field);
+    ++moves;
+}
 
+void Rook::move_back(BField *field, CPiece* prev) {
+    CPiece::move_back(field, prev);
+    --moves;
+}

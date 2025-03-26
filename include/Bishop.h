@@ -9,7 +9,6 @@
 namespace chs {
     class Bishop : public CPiece {
         static BField get_init_field(uint8_t side, int num);
-        int moves = 0;
     public:
         Bishop() = default;
         static void init_for_side(uint8_t side_, std::vector<CPiece *> &vec, std::vector<BField> &play_field);
@@ -17,8 +16,6 @@ namespace chs {
 
         std::vector<std::vector<BField *>> get_valid_moves(std::vector<BField> &play_field) override;
 
-        void move(BField *field) override;
-        void move_back(BField *field) override;
     };
 }
 

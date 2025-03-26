@@ -44,13 +44,11 @@ namespace chs {
     };
     class CPiece{
     protected:
-        BField* pos = nullptr;
         uint8_t side = T_White;
         uint32_t value = 0;
         uint8_t type = T_Init;
-        static void fill_diagonals(std::vector<std::vector<BField *>> &vec, const BField *pos, std::vector<BField> &play_field);
-        static void fill_straight(std::vector<std::vector<BField *>> &vec, BField *pos, std::vector<BField> &play_field);
     public:
+        BField* pos = nullptr;
         /*
          * Used to construct actual piece structures
          */
@@ -70,14 +68,17 @@ namespace chs {
             field->piece = this;
         }
 
-        virtual void move_back(BField * field) {
-            pos->piece = nullptr;
+        virtual void move_back(BField * field, CPiece* prev) {
+            pos->piece = prev;
             pos = field;
             field->piece = this;
         }
 
         virtual uint8_t get_type(){return type;}
         virtual uint8_t get_side(){return side;}
+
+        static void fill_diagonals(std::vector<std::vector<BField *>> &vec, const BField *pos, std::vector<BField> &play_field);
+        static void fill_straight(std::vector<std::vector<BField *>> &vec, BField *pos, std::vector<BField> &play_field);
     };
 
     inline void CPiece::fill_diagonals(std::vector<std::vector<BField *>> &vec, const BField *pos, std::vector<BField> &play_field) {

@@ -25,7 +25,7 @@ void King::move(BField *field) {
     ++moves;
 }
 
-void King::move_back(BField *field) {
-    CPiece::move(field);
+void King::move_back(BField *field, CPiece* prev) {
+    CPiece::move_back(field, prev);
     --moves;
 }

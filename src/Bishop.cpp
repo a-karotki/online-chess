@@ -35,13 +35,5 @@ std::vector<std::vector<BField *>> Bishop::get_valid_moves(std::vector<BField> &
     return res;
 }
 
-void Bishop::move(BField *field) {
-    CPiece::move(field);
-    ++moves;
-}
 
-void Bishop::move_back(BField *field) {
-    CPiece::move_back(field);
-    --moves;
-}
 

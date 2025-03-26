@@ -16,10 +16,10 @@ namespace chs {
 
         static void init_for_side(uint8_t side_, std::vector<CPiece *> &vec,
                                   std::vector<BField> &play_field);
-
+        //the first vec - moves, the second - left hit, the third - right hit
         std::vector<std::vector<BField *>> get_valid_moves(std::vector<BField> &play_field) override;
         void move(BField *field) override;
-        void move_back(BField *field) override;
+        void move_back(BField *field, CPiece* prev) override;
     };
 }
 

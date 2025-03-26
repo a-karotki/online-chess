@@ -52,7 +52,7 @@ void Pawn::move(BField *field) {
     ++moves;
 }
 
-void Pawn::move_back(BField *field) {
-    CPiece::move(field);
+void Pawn::move_back(BField *field, CPiece *prev) {
+    CPiece::move_back(field, prev);
     --moves;
 }
